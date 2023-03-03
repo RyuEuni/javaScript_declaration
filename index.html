@@ -7,6 +7,49 @@
   <title>Document</title>
 </head>
 <body>
-  
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root');
+    const makeUl = document.createElement('ul');
+    root.appendChild(makeUl);
+
+    //마크업에 가까운 코드
+    // makeUl.style.width = "100px";
+    // makeUl.style.height = "100px";
+    // makeUl.style.border = "1px solid black";
+
+    //중간정도의 마크업 코드(정적과 동적 사이)
+    // const ulStyleObject = ["width", "height", "border"];
+    // const ulStyleValue = ["100px", "100px", "1px solid black"];
+    // makeUl.style[ulStyleObject[0]] = "100px";
+    // makeUl.style[ulStyleObject[1]] = "100px";
+    // makeUl.style[ulStyleObject[2]] = "1px solid black";
+
+    //동적으로 이루어진 코드(몇 백개가 와도 가능)
+    // for(let i = 0; i < ulStyleObject.length; i++){
+    //   makeUl.style[ulStyleObject[i]] = ulStyleValue[i];
+    // }
+    //동적 코드를 함수화 시킴
+    // function twoArrayDomStyling(firstArray, secondArray, element){
+    //   for(let i = 0; i < firstArray.length; i++){
+    //     element.style[firstArray[i]] = secondArray[i];
+    //   }
+    // }
+    // twoArrayDomStyling(ulStyleObject, ulStyleValue, makeUl);
+
+    let domStyle = {
+      firstArray: ["width", "height", "border"],
+      secondArray: ["100px", "100px", "1px solid black"],
+      element: root.children[0],
+    }
+    function oneObjectDOMStyling(object){
+      for(let i = 0; i < object.firstArray.length; i++){
+        object.element.style[object.firstArray[i]] = object.secondArray[i];
+      }
+    }
+    oneObjectDOMStyling(domStyle);
+
+  </script>
 </body>
 </html>

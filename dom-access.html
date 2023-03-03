@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script>
+    const root = document.getElementById('root');
+    console.log(typeof(root.style));
+
+    //
+    for(let junbrother in root.style){ //root이라는 객체의 style 속성값을 junbrother라는 이름으로 속성 개수만큼 반복해라. -> root.style속성값의 개수만큼 반복작업을 한다.
+      //console.log(junbrother);
+      if(junbrother === "width"){
+        junbrother = "100px";
+      }
+      else if(junbrother === "height"){
+        junbrother = "100px";
+      }
+      else if(junbrother === "backgroundColor"){
+        junbrother = "black";
+      }
+    }
+    console.dir(root.style);
+  </script>
+</body>
+</html>
