@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="root"></div>
+  <script>
+    function getRandomInt(min, max) {
+      min = Math.ceil(min);
+      max = Math.floor(max);
+      return Math.floor(Math.random() * (max - min)) + min; //최댓값은 제외, 최솟값은 포함
+    }
+    const root = document.getElementById('root');
+    const h1 = document.createElement('h1');
+    const p = document.createElement('p');
+
+    root.appendChild(h1);
+    root.appendChild(p);
+
+    let randomValue = {
+      styleValue: ["width", "height", "backgroundColor", "border"],
+      rootStyle: ["500px", "1000px", "", "1px solid black"],
+      h1Style: ["100%", "10%", "white"],
+      travel: ["경기도", "강원도", "충청북도", "충청남도", "경상북도", "경상남도", "전라북도", "전라남도"],
+      travelDetail: []
+    }
+    
+    for(let i = 0; i < randomValue.styleValue.length; i++){
+      root.style[randomValue.styleValue[i]] = randomValue.rootStyle[i];
+      h1.style[randomValue.styleValue[i]] = randomValue.h1Style[i];
+    }
+
+    h1.textContent = "이번 여행의 목적지는?"
+    p.textContent = randomValue.travel[getRandomInt(0, randomValue.travel.length)];
+  </script>
+</body>
+</html>
