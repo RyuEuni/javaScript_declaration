@@ -7,9 +7,21 @@
   <title>Document</title>
 </head>
 <body>
-  <div id="root"></div>
+  <div id="root">
+    <input type="text" id="text" placeholder="찾을 값을 입력해주세요" > 
+    <button type="button"  onclick="getValueInput()"> 
+      click
+  </button>
+  </div>
   <script>
     const root = document.getElementById('root');
+    let input ;
+    
+    function getValueInput(){
+      input = document.getElementById('text').value;
+    }
+
+    console.log(input);
 
     let studentObject = {
       "강지민":"마라탕",
@@ -52,7 +64,7 @@
         //console.log(heateMushroom);
       }
     }
-    root.textContent = `${hateFood}을(를) 싫어하는 사람은 ${heateMushroomHuman}이고 총 ${heateMushroom}명입니다 `;
+    //root.textContent = `${hateFood}을(를) 싫어하는 사람은 ${heateMushroomHuman}이고 총 ${heateMushroom}명입니다 `;
   </script>
 </body>
 </html>
